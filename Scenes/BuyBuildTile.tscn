@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwstyhl088an4"]
+
+[ext_resource type="Texture2D" uid="uid://bpw4jg1xytowo" path="res://Images/icon.svg" id="1_n84xg"]
+
+[node name="BuyBuildTile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 7.0
+offset_right = -559.0
+offset_bottom = -1797.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BuyBuildTileCont" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 459.0
+offset_bottom = 510.0
+
+[node name="ColorRect" type="ColorRect" parent="BuyBuildTileCont"]
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="BuyBuildTileCont/ColorRect"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 418.0
+offset_bottom = 467.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BuyBuildTileCont/ColorRect/ColorRect2"]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 26.0
+offset_right = 377.0
+offset_bottom = 415.0
+
+[node name="BuildingLabelCont" type="MarginContainer" parent="BuyBuildTileCont"]
+layout_mode = 2
+theme_override_constants/margin_top = -345
+
+[node name="BuildingLabel" type="Label" parent="BuyBuildTileCont/BuildingLabelCont"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Building"
+
+[node name="BuyCurBuildingButCont" type="MarginContainer" parent="BuyBuildTileCont"]
+layout_mode = 2
+theme_override_constants/margin_left = 95
+theme_override_constants/margin_top = 330
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 85
+
+[node name="BuyCurBuildingBut" type="Button" parent="BuyBuildTileCont/BuyCurBuildingButCont"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 46
+text = " - 15"
+icon = ExtResource("1_n84xg")
+clip_text = true
+expand_icon = true

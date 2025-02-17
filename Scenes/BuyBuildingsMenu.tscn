@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://jd25j2y70xms"]
+
+[ext_resource type="Script" path="res://Scripts/BuyBuildingsMenu.gd" id="1_us0p4"]
+[ext_resource type="PackedScene" uid="uid://dwstyhl088an4" path="res://Scenes/BuyBuildTile.tscn" id="2_5ytyn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_us0p4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1088.0
+offset_bottom = 2332.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 217.0
+offset_right = 1081.0
+offset_bottom = 2339.0
+
+[node name="VScrollBar" type="VScrollBar" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="BuildTilesContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="BuyBuildTile" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
+layout_mode = 2
+
+[node name="BuyBuildTile2" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
+layout_mode = 2
+
+[node name="BuyBuildTile3" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
+layout_mode = 2
+
+[node name="BuyBuildTile4" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
+layout_mode = 2
+
+[node name="BuyBuildTile5" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
+layout_mode = 2
+
+[node name="BuyBuildTile6" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
+layout_mode = 2
+
+[node name="ExitBuildMenuCont" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 1083.0
+offset_bottom = 211.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ExitBuildMenuCont"]
+layout_mode = 2
+
+[node name="ShopLabel" type="Label" parent="ExitBuildMenuCont/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.29
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 131
+text = "Shop
+"
+
+[node name="ExitBuildMenuBut" type="Button" parent="ExitBuildMenuCont/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.57
+theme_override_font_sizes/font_size = 96
+text = "Exit"
+
+[connection signal="pressed" from="ExitBuildMenuCont/HBoxContainer/ExitBuildMenuBut" to="." method="_on_exit_build_menu_but_pressed"]
