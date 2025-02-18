@@ -16,7 +16,7 @@ var data : Data = Data.new()
 
 #Update Labels Functions
 func update_label() -> void:
-	(get_node("ColorRect/MarginContainer/GridContainer/PearlsAmountLabel") as Label).text = "%" %data.resources.Pearls
+	(get_node("ColorRect/MarginContainer/GridContainer/PearlsAmountLabel") as Label).text = str(data.resources.Pearls) 
 
 
 #debug Buttons setup
