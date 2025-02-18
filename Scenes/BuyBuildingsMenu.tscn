@@ -24,9 +24,7 @@ layout_mode = 0
 offset_top = 217.0
 offset_right = 1081.0
 offset_bottom = 2339.0
-
-[node name="VScrollBar" type="VScrollBar" parent="MarginContainer"]
-layout_mode = 2
+theme_override_constants/margin_left = 35
 
 [node name="BuildTilesContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2

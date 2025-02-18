@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://6xbcwwfq6akg"]
+[gd_scene load_steps=6 format=3 uid="uid://6xbcwwfq6akg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_a7pg0"]
 [ext_resource type="Texture2D" uid="uid://dhmkyvsicu75s" path="res://Images/AdButton.PNG" id="1_xx6s1"]
+[ext_resource type="Theme" uid="uid://ciwjhkhg3j0no" path="res://Themes/BigLabelTheme.tres" id="2_wivlq"]
 [ext_resource type="Theme" uid="uid://dod4khpgtu50m" path="res://Themes/BigButtonTheme.tres" id="2_ws0mi"]
 
 [sub_resource type="Theme" id="Theme_raoxt"]
@@ -14,8 +15,8 @@ script = ExtResource("1_a7pg0")
 offset_left = 50.0
 offset_top = 128.0
 offset_right = 735.0
-offset_bottom = 321.0
-color = Color(0, 0, 0, 1)
+offset_bottom = 318.0
+color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 1
@@ -28,6 +29,42 @@ offset_right = -38.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="_Pearls_" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = " Pearls"
+
+[node name="_Power_" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = " Power
+"
+
+[node name="_People_" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = " People
+"
+
+[node name="PearlsAmountLabel" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = "o"
+
+[node name="PowerAmountLabel" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = "o"
+
+[node name="PeopleAmountLabel" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = "o"
 
 [node name="SettingsButton" type="Button" parent="."]
 offset_left = 781.0
@@ -71,4 +108,31 @@ layout_mode = 2
 theme = ExtResource("2_ws0mi")
 text = "Build"
 
+[node name="PearlsButt" type="Button" parent="."]
+offset_left = 248.0
+offset_top = 767.0
+offset_right = 694.0
+offset_bottom = 912.0
+theme = ExtResource("2_ws0mi")
+text = "+1 Pearls"
+
+[node name="PowerButt" type="Button" parent="."]
+offset_left = 245.0
+offset_top = 964.0
+offset_right = 691.0
+offset_bottom = 1109.0
+theme = ExtResource("2_ws0mi")
+text = "+1 Power"
+
+[node name="PeopleButt" type="Button" parent="."]
+offset_left = 243.0
+offset_top = 1154.0
+offset_right = 689.0
+offset_bottom = 1299.0
+theme = ExtResource("2_ws0mi")
+text = "+1 People"
+
 [connection signal="pressed" from="MarginContainer/BuyBuildingsButton" to="." method="_on_buy_buildings_button_pressed"]
+[connection signal="pressed" from="PearlsButt" to="." method="_on_pearls_butt_pressed"]
+[connection signal="pressed" from="PowerButt" to="." method="_on_power_butt_pressed"]
+[connection signal="pressed" from="PeopleButt" to="." method="_on_people_butt_pressed"]
