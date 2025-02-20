@@ -1,15 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://6xbcwwfq6akg"]
+[gd_scene load_steps=9 format=3 uid="uid://6xbcwwfq6akg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_a7pg0"]
 [ext_resource type="Texture2D" uid="uid://dhmkyvsicu75s" path="res://Images/AdButton.PNG" id="1_xx6s1"]
+[ext_resource type="PackedScene" uid="uid://dufp81p6axnj5" path="res://resource_manager.tscn" id="2_bgqnf"]
+[ext_resource type="PackedScene" uid="uid://cy2u8obe4qi3h" path="res://clock.tscn" id="2_utcoh"]
 [ext_resource type="Theme" uid="uid://ciwjhkhg3j0no" path="res://Themes/BigLabelTheme.tres" id="2_wivlq"]
 [ext_resource type="Theme" uid="uid://dod4khpgtu50m" path="res://Themes/BigButtonTheme.tres" id="2_ws0mi"]
+[ext_resource type="PackedScene" uid="uid://0n5njq3ts32o" path="res://pearl_generator.tscn" id="3_xw5rk"]
 
 [sub_resource type="Theme" id="Theme_raoxt"]
 Label/font_sizes/font_size = 64
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a7pg0")
+
+[node name="Resources" type="Node" parent="."]
+
+[node name="ResourceManager" parent="Resources" instance=ExtResource("2_bgqnf")]
+
+[node name="Clock" parent="." instance=ExtResource("2_utcoh")]
+
+[node name="PearlGenerator" parent="." instance=ExtResource("3_xw5rk")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 50.0
@@ -75,7 +86,7 @@ scale = Vector2(3.73883, 3.47116)
 text = "Settings
 "
 
-[node name="Button2" type="Button" parent="."]
+[node name="AdBreakButton" type="Button" parent="."]
 offset_left = 781.0
 offset_top = 274.0
 offset_right = 851.0
@@ -132,6 +143,7 @@ offset_bottom = 1299.0
 theme = ExtResource("2_ws0mi")
 text = "+1 People"
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="MarginContainer/BuyBuildingsButton" to="." method="_on_buy_buildings_button_pressed"]
 [connection signal="pressed" from="PearlsButt" to="." method="_on_pearls_butt_pressed"]
 [connection signal="pressed" from="PowerButt" to="." method="_on_power_butt_pressed"]
