@@ -5,7 +5,7 @@ static var ref : Game
 
 #Switch screens to buy menu
 func _on_buy_buildings_button_pressed():
-	%Camera2D.position.x = 1800
+	%Camera2D.position.x = 1850
 #	%Camera2D.position.y = 
 
 #Singleton Setup
