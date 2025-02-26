@@ -22,6 +22,8 @@ var data : Data = Game.ref.data
 func get_pearls() -> int:
 	return data.resources.Pearls
 	
+func get_pearl_farms() -> int:
+	return data.resources.pearl_farms
 
 #creates Pearls
 func create_pearls(quantity:int) -> Error:
@@ -30,12 +32,15 @@ func create_pearls(quantity:int) -> Error:
 	data.resources.Pearls += quantity
 	pearls_updated.emit()
 	return OK
-	
+
 func consume_Pearls(quantity:int) -> Error:
 	if quantity < 0: return FAILED
 	
-	if quantity < data.resources.Pearls : return FAILED
+	if quantity > data.resources.Pearls : return FAILED
 	pearls_updated.emit()
 	
 	data.resources.Pearls -= quantity
 	return OK
+
+func buy_pearl_farm():
+	data.resources.pearl_farms += 1

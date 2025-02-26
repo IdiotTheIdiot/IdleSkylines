@@ -5,7 +5,8 @@ static var ref : Game
 
 #Switch screens to buy menu
 func _on_buy_buildings_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/BuyBuildingsMenu.tscn")
+	%Camera2D.position.x = 1800
+#	%Camera2D.position.y = 
 
 #Singleton Setup
 func _init() -> void :

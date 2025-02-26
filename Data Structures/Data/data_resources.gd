@@ -12,3 +12,4 @@ extends Resource
 #buildings player owns
 
 @export var Generators : int = 0
+@export var pearl_farms : int = 0

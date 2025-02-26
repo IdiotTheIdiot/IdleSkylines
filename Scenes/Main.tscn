@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6xbcwwfq6akg"]
+[gd_scene load_steps=10 format=3 uid="uid://6xbcwwfq6akg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_a7pg0"]
 [ext_resource type="Texture2D" uid="uid://dhmkyvsicu75s" path="res://Images/AdButton.PNG" id="1_xx6s1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://ciwjhkhg3j0no" path="res://Themes/BigLabelTheme.tres" id="2_wivlq"]
 [ext_resource type="Theme" uid="uid://dod4khpgtu50m" path="res://Themes/BigButtonTheme.tres" id="2_ws0mi"]
 [ext_resource type="PackedScene" uid="uid://0n5njq3ts32o" path="res://pearl_generator.tscn" id="3_xw5rk"]
+[ext_resource type="PackedScene" uid="uid://jd25j2y70xms" path="res://Scenes/BuyBuildingsMenu.tscn" id="8_j3dm6"]
 
 [sub_resource type="Theme" id="Theme_raoxt"]
 Label/font_sizes/font_size = 64
@@ -142,6 +143,17 @@ offset_right = 689.0
 offset_bottom = 1299.0
 theme = ExtResource("2_ws0mi")
 text = "+1 People"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(506, 1193)
+drag_horizontal_enabled = true
+
+[node name="Control" parent="." instance=ExtResource("8_j3dm6")]
+offset_left = 1199.0
+offset_top = 86.0
+offset_right = 1199.0
+offset_bottom = 86.0
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="MarginContainer/BuyBuildingsButton" to="." method="_on_buy_buildings_button_pressed"]
