@@ -35,29 +35,37 @@ layout_mode = 2
 
 [node name="BuyBuildTile2" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
 layout_mode = 2
+Building_Type = 2
 
 [node name="BuyBuildTile3" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
 layout_mode = 2
+Building_Type = 2
 
 [node name="BuyBuildTile4" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
 layout_mode = 2
+Building_Type = 2
 
 [node name="BuyBuildTile5" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
 layout_mode = 2
+Building_Type = 2
 
 [node name="BuyBuildTile6" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
 layout_mode = 2
+Building_Type = 2
 
 [node name="ExitBuildMenuCont" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 18.0
 offset_right = 1083.0
 offset_bottom = 211.0
+theme_override_constants/margin_left = 805
+theme_override_constants/margin_right = 65
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ExitBuildMenuCont"]
 layout_mode = 2
 
 [node name="ShopLabel" type="Label" parent="ExitBuildMenuCont/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.29

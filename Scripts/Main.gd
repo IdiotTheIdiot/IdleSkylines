@@ -5,7 +5,7 @@ static var ref : Game
 
 #Switch screens to buy menu
 func _on_buy_buildings_button_pressed():
-	%Camera2D.position.x = 1850
+	%Camera2D.position.x = 1200
 #	%Camera2D.position.y = 
 
 #Singleton Setup
@@ -38,12 +38,12 @@ func load_data() -> Data:
 
 #Update Labels Functions
 func update_label() -> void:
-	(get_node("ColorRect/MarginContainer/GridContainer/PearlsAmountLabel") as Label).text = str(ResourcesManager.ref.get_pearls())
-	(get_node("ColorRect/MarginContainer/GridContainer/PowerAmountLabel") as Label).text = str(data.resources.Power) 
-	(get_node("ColorRect/MarginContainer/GridContainer/PeopleAmountLabel") as Label).text = str(data.resources.People)
+	(get_node("Camera2D/ColorRect/MarginContainer/GridContainer/PearlsAmountLabel") as Label).text = str(ResourcesManager.ref.get_pearls())
+	(get_node("Camera2D/ColorRect/MarginContainer/GridContainer/PowerAmountLabel") as Label).text = str(data.resources.Power) 
+	(get_node("Camera2D/ColorRect/MarginContainer/GridContainer/PeopleAmountLabel") as Label).text = str(data.resources.People)
 
  
-#generate Pearls and Update
+#generate Pearls and Update 
 func create_pearls() -> void:
 	ResourcesManager.ref.create_pearls(5)
 	update_label()

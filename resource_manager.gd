@@ -37,9 +37,10 @@ func consume_Pearls(quantity:int) -> Error:
 	if quantity < 0: return FAILED
 	
 	if quantity > data.resources.Pearls : return FAILED
+	data.resources.Pearls -= quantity
 	pearls_updated.emit()
 	
-	data.resources.Pearls -= quantity
+	
 	return OK
 
 func buy_pearl_farm():

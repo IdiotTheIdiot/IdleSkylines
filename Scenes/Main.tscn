@@ -23,61 +23,6 @@ script = ExtResource("1_a7pg0")
 
 [node name="PearlGenerator" parent="." instance=ExtResource("3_xw5rk")]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 50.0
-offset_top = 128.0
-offset_right = 735.0
-offset_bottom = 318.0
-color = Color(0.419608, 0.419608, 0.419608, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = 4.0
-offset_right = -38.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer"]
-layout_mode = 2
-columns = 3
-
-[node name="_Pearls_" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_wivlq")
-text = " Pearls"
-
-[node name="_Power_" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_wivlq")
-text = " Power
-"
-
-[node name="_People_" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_wivlq")
-text = " People
-"
-
-[node name="PearlsAmountLabel" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_wivlq")
-text = "o"
-
-[node name="PowerAmountLabel" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_wivlq")
-text = "o"
-
-[node name="PeopleAmountLabel" type="Label" parent="ColorRect/MarginContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_wivlq")
-text = "o"
-
 [node name="SettingsButton" type="Button" parent="."]
 offset_left = 781.0
 offset_top = 124.0
@@ -146,8 +91,64 @@ text = "+1 People"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1752, 1175)
+anchor_mode = 0
+position_smoothing_enabled = true
 drag_horizontal_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+offset_left = 49.0
+offset_top = 80.0
+offset_right = 734.0
+offset_bottom = 270.0
+color = Color(0.419608, 0.419608, 0.419608, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 4.0
+offset_right = -38.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Camera2D/ColorRect/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="_Pearls_" type="Label" parent="Camera2D/ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = " Pearls"
+
+[node name="_Power_" type="Label" parent="Camera2D/ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = " Power
+"
+
+[node name="_People_" type="Label" parent="Camera2D/ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = " People
+"
+
+[node name="PearlsAmountLabel" type="Label" parent="Camera2D/ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = "o"
+
+[node name="PowerAmountLabel" type="Label" parent="Camera2D/ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = "o"
+
+[node name="PeopleAmountLabel" type="Label" parent="Camera2D/ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_wivlq")
+text = "o"
 
 [node name="Control" parent="." instance=ExtResource("8_j3dm6")]
 offset_left = 1199.0
