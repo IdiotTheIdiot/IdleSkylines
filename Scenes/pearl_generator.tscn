@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0n5njq3ts32o"]
+
+[ext_resource type="Script" path="res://Scripts/pearl_generator.gd" id="1_fp0us"]
+
+[node name="PearlGenerator" type="Node"]
+script = ExtResource("1_fp0us")

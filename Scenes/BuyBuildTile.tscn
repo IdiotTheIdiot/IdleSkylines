@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwstyhl088an4"]
 
-[ext_resource type="Script" path="res://Scenes/BuyBuildTile.gd" id="1_bhohl"]
+[ext_resource type="Script" path="res://Scripts/BuyBuildTile.gd" id="1_ilibe"]
 [ext_resource type="Texture2D" uid="uid://bpw4jg1xytowo" path="res://Images/icon.svg" id="1_n84xg"]
 
 [node name="BuyBuildTile" type="Control"]
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_bhohl")
+script = ExtResource("1_ilibe")
 
 [node name="BuyBuildTileCont" type="MarginContainer" parent="."]
 layout_mode = 0

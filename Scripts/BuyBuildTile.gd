@@ -19,6 +19,9 @@ func calculate_building_cost(building_type : int, buildings_owned : int):
 		var cost_floor : int = pearl_farm_amount/20
 		Building_Cost = 4 * pow(1.08, (pearl_farm_amount * pow(2, cost_floor)))
 		return Building_Cost
+	if building_type == 2:
+	
+		return Building_Cost
 
 
 func _on_buy_cur_building_but_pressed():

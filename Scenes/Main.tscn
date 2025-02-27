@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_a7pg0"]
 [ext_resource type="Texture2D" uid="uid://dhmkyvsicu75s" path="res://Images/AdButton.PNG" id="1_xx6s1"]
-[ext_resource type="PackedScene" uid="uid://dufp81p6axnj5" path="res://resource_manager.tscn" id="2_bgqnf"]
-[ext_resource type="PackedScene" uid="uid://cy2u8obe4qi3h" path="res://clock.tscn" id="2_utcoh"]
+[ext_resource type="PackedScene" uid="uid://dufp81p6axnj5" path="res://Scenes/resource_manager.tscn" id="2_bgqnf"]
+[ext_resource type="PackedScene" uid="uid://cy2u8obe4qi3h" path="res://Scenes/clock.tscn" id="2_utcoh"]
 [ext_resource type="Theme" uid="uid://ciwjhkhg3j0no" path="res://Themes/BigLabelTheme.tres" id="2_wivlq"]
 [ext_resource type="Theme" uid="uid://dod4khpgtu50m" path="res://Themes/BigButtonTheme.tres" id="2_ws0mi"]
-[ext_resource type="PackedScene" uid="uid://0n5njq3ts32o" path="res://pearl_generator.tscn" id="3_xw5rk"]
+[ext_resource type="PackedScene" uid="uid://0n5njq3ts32o" path="res://Scenes/pearl_generator.tscn" id="3_xw5rk"]
 [ext_resource type="PackedScene" uid="uid://jd25j2y70xms" path="res://Scenes/BuyBuildingsMenu.tscn" id="8_j3dm6"]
 
 [sub_resource type="Theme" id="Theme_raoxt"]

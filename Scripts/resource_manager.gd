@@ -43,6 +43,11 @@ func consume_Pearls(quantity:int) -> Error:
 	
 	return OK
 	
+
+func consume_Power(quantity:int) -> Error:
+	if quantity < 0 : return FAILED
+	return FAILED
+
 func buy_power_gen():
 	data.resources.Max_Power += 1
 
