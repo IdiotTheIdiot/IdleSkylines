@@ -27,34 +27,48 @@ func _ready():
 func calculate_building_cost(building_type : BuildingType, buildings_owned : int):
 	match Building_Type:
 		BuildingType.PEARLFARM:
+			
 			var pearl_farm_amount : int = buildings_owned
 			var cost_floor : int = pearl_farm_amount/20
 			Building_Cost = 4 * pow(1.08, (pearl_farm_amount * pow(2, cost_floor)))
+			
 			return Building_Cost
 		BuildingType.POWERGEN:
-		
+			
+			var power_gen_amount : int = buildings_owned
+			var cost_floor : int = power_gen_amount/20
+			Building_Cost = 3 * pow(1.02, (power_gen_amount * pow(2, cost_floor)))
+			
 			return Building_Cost
 
 
 func _on_buy_cur_building_but_pressed():
-	print("pressed")
+	
 	match Building_Type:
 		
 		BuildingType.PEARLFARM:
+			
+			if ResourcesManager.ref.check_power() : return
 			
 			var buildcost : int = calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms())
 			var error : Error = ResourcesManager.ref.consume_Pearls(buildcost)
 			print(Building_Cost)
 			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms()))
 			
-			var Perror : Error = ResourcesManager.ref.consume_Power(1)
-			if error or Perror :
-				print(error, Perror) 
-				ResourcesManager.ref.create_pearls(buildcost)
-				return
+			if error : return
 			
+			ResourcesManager.ref.consume_Power(1)
 			ResourcesManager.ref.buy_pearl_farm()
 			print("bought")
 		BuildingType.POWERGEN:
-			return 
+			
+			var buildcost : int = calculate_building_cost(BuildingType.POWERGEN, ResourcesManager.ref.get_power_gens())
+			var error : Error = ResourcesManager.ref.consume_Pearls(buildcost)
+			print(Building_Cost)
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.POWERGEN, ResourcesManager.ref.get_power_gens()))
+			
+			if error : return
+			
+			ResourcesManager.ref.buy_power_gen()
+			
 			

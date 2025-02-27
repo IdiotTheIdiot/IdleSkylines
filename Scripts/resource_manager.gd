@@ -25,11 +25,15 @@ func get_pearls() -> int:
 func get_pearl_farms() -> int:
 	return data.resources.pearl_farms
 
+func get_power_gens() -> int:
+	return data.resources.Generators
+
 func get_power() -> int:
 	return data.resources.Power
 
 func get_max_power() -> int:
 	return data.resources.Max_Power
+
 
 #creates Pearls
 func create_pearls(quantity:int) -> Error:
@@ -50,6 +54,11 @@ func consume_Pearls(quantity:int, can_buy: Error = OK) -> Error:
 	return OK
 	
 
+func check_power():
+	if data.resources.Power >= data.resources.Max_Power:
+		return FAILED
+	return OK
+
 func consume_Power(quantity:int) -> Error:
 	if quantity < 0 : return FAILED
 	
@@ -61,6 +70,7 @@ func consume_Power(quantity:int) -> Error:
 
 func buy_power_gen():
 	data.resources.Max_Power += 1
-
+	data.resources.Generators += 1
+	power_updated.emit()
 func buy_pearl_farm():
 	data.resources.pearl_farms += 1
