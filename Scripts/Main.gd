@@ -17,7 +17,9 @@ func _init() -> void :
 func _ready():
 	update_label()
 	ResourcesManager.ref.pearls_updated.connect(on_pearls_updated)
+	ResourcesManager.ref.power_updated.connect(on_power_updated)
 
+#DATA STORAGE
 const PATH : String= "user://save.tres"
 #main Data object
 var data : Data = load_data()
@@ -39,7 +41,7 @@ func load_data() -> Data:
 #Update Labels Functions
 func update_label() -> void:
 	(get_node("Camera2D/ColorRect/MarginContainer/GridContainer/PearlsAmountLabel") as Label).text = str(ResourcesManager.ref.get_pearls())
-	(get_node("Camera2D/ColorRect/MarginContainer/GridContainer/PowerAmountLabel") as Label).text = str(data.resources.Power) 
+	(get_node("Camera2D/ColorRect/MarginContainer/GridContainer/PowerAmountLabel") as Label).text = "%s / %s" % [ResourcesManager.ref.get_power(), ResourcesManager.ref.get_max_power()]
 	(get_node("Camera2D/ColorRect/MarginContainer/GridContainer/PeopleAmountLabel") as Label).text = str(data.resources.People)
 
  
@@ -70,4 +72,7 @@ func _on_tree_entered():
 
 
 func on_pearls_updated() -> void:
+	update_label()
+
+func on_power_updated() -> void:
 	update_label()
