@@ -39,19 +39,7 @@ Building_Type = 2
 
 [node name="BuyBuildTile3" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
 layout_mode = 2
-Building_Type = 2
-
-[node name="BuyBuildTile4" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
-layout_mode = 2
-Building_Type = 2
-
-[node name="BuyBuildTile5" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
-layout_mode = 2
-Building_Type = 2
-
-[node name="BuyBuildTile6" parent="MarginContainer/BuildTilesContainer" instance=ExtResource("2_5ytyn")]
-layout_mode = 2
-Building_Type = 2
+Building_Type = 3
 
 [node name="ExitBuildMenuCont" type="MarginContainer" parent="."]
 layout_mode = 0

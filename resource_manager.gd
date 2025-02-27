@@ -42,6 +42,9 @@ func consume_Pearls(quantity:int) -> Error:
 	
 	
 	return OK
+	
+func buy_power_gen():
+	data.resources.Max_Power += 1
 
 func buy_pearl_farm():
 	data.resources.pearl_farms += 1
