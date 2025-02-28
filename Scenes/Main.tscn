@@ -137,6 +137,7 @@ text = " People
 
 [node name="PearlsAmountLabel" type="Label" parent="Camera2D/ColorRect/MarginContainer/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("2_wivlq")
 text = "o"
 
@@ -149,6 +150,24 @@ text = "o"
 layout_mode = 2
 theme = ExtResource("2_wivlq")
 text = "o"
+
+[node name="PopUp" type="ColorRect" parent="Camera2D"]
+offset_left = 110.0
+offset_top = 725.0
+offset_right = 307.0
+offset_bottom = 935.0
+scale = Vector2(4.27172, 3.09362)
+color = Color(0.054902, 0.054902, 0.054902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/PopUp"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PopUpLabel" type="Label" parent="Camera2D/PopUp/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "This Is placeholder :)"
 
 [node name="Control" parent="." instance=ExtResource("8_j3dm6")]
 offset_left = 1199.0

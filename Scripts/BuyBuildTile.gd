@@ -66,9 +66,10 @@ func _on_buy_cur_building_but_pressed():
 			var buildcost : int = calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms())
 			var error : Error = ResourcesManager.ref.consume_Pearls(buildcost)
 			print(Building_Cost)
-			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms()))
 			
 			if error : return
+			
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms() + 1))
 			
 			ResourcesManager.ref.consume_children(1)
 			ResourcesManager.ref.consume_Power(1)
@@ -79,9 +80,10 @@ func _on_buy_cur_building_but_pressed():
 			var buildcost : int = calculate_building_cost(BuildingType.POWERGEN, ResourcesManager.ref.get_power_gens())
 			var error : Error = ResourcesManager.ref.consume_Pearls(buildcost)
 			print(Building_Cost)
-			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.POWERGEN, ResourcesManager.ref.get_power_gens()))
 			
 			if error : return
+			
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.POWERGEN, ResourcesManager.ref.get_power_gens() + 1))
 			
 			ResourcesManager.ref.buy_power_gen()
 		BuildingType.HOUSING:
@@ -89,7 +91,7 @@ func _on_buy_cur_building_but_pressed():
 			if ResourcesManager.ref.check_power() : return
 			var buildcost : int = calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses())
 			var error : Error = ResourcesManager.ref.consume_Pearls(buildcost)
-			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses()))
 			if error : return
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses() + 1))
 			ResourcesManager.ref.consume_Power(1)
 			ResourcesManager.ref.buy_house()

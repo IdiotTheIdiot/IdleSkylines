@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://6lglox21kgay"]
+
+[ext_resource type="Script" path="res://Scenes/start_menu.gd" id="1_r20vi"]
+[ext_resource type="Texture2D" uid="uid://cmxojuxyvv432" path="res://Images/GameLogo.png" id="2_pirwk"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r20vi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 1149.0
+offset_right = 178.0
+offset_bottom = 1189.0
+scale = Vector2(18.892, 20.1396)
+color = Color(0.0941176, 0.0941176, 0.239216, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayGameButton" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 15
+text = "Play"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = -10.0
+offset_top = 14.0
+offset_right = 815.0
+offset_bottom = 1480.0
+scale = Vector2(1.32027, 1.32027)
+texture = ExtResource("2_pirwk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="GameFadeLogo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -6.0
+offset_right = 808.0
+offset_bottom = 1460.0
+scale = Vector2(1.34664, 1.34664)
+texture = ExtResource("2_pirwk")
+
+[node name="LoadingScreen" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -6.0
+offset_right = 23.0
+offset_bottom = 34.0
+scale = Vector2(28.2742, 58.0025)
+color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[node name="Label" type="Label" parent="LoadingScreen"]
+layout_mode = 0
+offset_left = 3.99658
+offset_top = 10.0513
+offset_right = 236.997
+offset_bottom = 94.0513
+scale = Vector2(0.137142, 0.0749198)
+theme_override_font_sizes/font_size = 61
+text = "Loading"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="LoadingScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
