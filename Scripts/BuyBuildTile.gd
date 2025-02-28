@@ -30,14 +30,21 @@ func calculate_building_cost(building_type : BuildingType, buildings_owned : int
 			
 			var pearl_farm_amount : int = buildings_owned
 			var cost_floor : int = pearl_farm_amount/20
-			Building_Cost = 4 * pow(1.08, (pearl_farm_amount * pow(2, cost_floor)))
+			Building_Cost = 4 * pow(1.08, (pearl_farm_amount * pow(2, cost_floor))) + pearl_farm_amount
 			
 			return Building_Cost
 		BuildingType.POWERGEN:
 			
 			var power_gen_amount : int = buildings_owned
 			var cost_floor : int = power_gen_amount/20
-			Building_Cost = 3 * pow(1.02, (power_gen_amount * pow(2, cost_floor)))
+			Building_Cost = 3 * pow(1.02, (power_gen_amount * pow(2, cost_floor))) + power_gen_amount
+			
+			return Building_Cost
+		BuildingType.HOUSING:
+			
+			var housing_amount : int = buildings_owned
+			var cost_floor :int = housing_amount/20
+			Building_Cost = 3 * pow(1.04, (housing_amount * pow(2, cost_floor))) + housing_amount
 			
 			return Building_Cost
 
@@ -47,7 +54,7 @@ func _on_buy_cur_building_but_pressed():
 	match Building_Type:
 		
 		BuildingType.PEARLFARM:
-			
+			if ResourcesManager.ref.get_unassigned_people() <= 0 : return
 			if ResourcesManager.ref.check_power() : return
 			
 			var buildcost : int = calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms())
@@ -57,6 +64,7 @@ func _on_buy_cur_building_but_pressed():
 			
 			if error : return
 			
+			ResourcesManager.ref.consume_children(1)
 			ResourcesManager.ref.consume_Power(1)
 			ResourcesManager.ref.buy_pearl_farm()
 			print("bought")
@@ -70,5 +78,12 @@ func _on_buy_cur_building_but_pressed():
 			if error : return
 			
 			ResourcesManager.ref.buy_power_gen()
+		BuildingType.HOUSING:
 			
-			
+			if ResourcesManager.ref.check_power() : return
+			var buildcost : int = calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses())
+			var error : Error = ResourcesManager.ref.consume_Pearls(buildcost)
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses()))
+			if error : return
+			ResourcesManager.ref.consume_Power(1)
+			ResourcesManager.ref.buy_house()

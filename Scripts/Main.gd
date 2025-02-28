@@ -18,6 +18,7 @@ func _ready():
 	update_label()
 	ResourcesManager.ref.pearls_updated.connect(on_pearls_updated)
 	ResourcesManager.ref.power_updated.connect(on_power_updated)
+	ResourcesManager.ref.housing_updated.connect(on_housing_updated)
 
 #DATA STORAGE
 const PATH : String= "user://save.tres"
@@ -75,4 +76,7 @@ func on_pearls_updated() -> void:
 	update_label()
 
 func on_power_updated() -> void:
+	update_label()
+
+func on_housing_updated() -> void:
 	update_label()

@@ -15,6 +15,8 @@ signal pearls_updated
 #signal pearls_created
 signal power_updated
 
+signal housing_updated
+
 #ref for game data
 var data : Data = Game.ref.data
 
@@ -34,6 +36,11 @@ func get_power() -> int:
 func get_max_power() -> int:
 	return data.resources.Max_Power
 
+func get_houses() -> int:
+	return data.resources.Houses
+	
+func get_unassigned_people():
+	return data.resources.Houses * 4 - get_pearl_farms()
 
 #creates Pearls
 func create_pearls(quantity:int) -> Error:
@@ -43,6 +50,7 @@ func create_pearls(quantity:int) -> Error:
 	pearls_updated.emit()
 	return OK
 
+#returns an error value for if the player has enough pearls, and consumes them if they do
 func consume_Pearls(quantity:int, can_buy: Error = OK) -> Error:
 	if quantity < 0: return FAILED
 	
@@ -54,7 +62,15 @@ func consume_Pearls(quantity:int, can_buy: Error = OK) -> Error:
 	return OK
 	
 
-func check_power():
+
+func consume_children(quantity):
+	if quantity < 0: return FAILED
+	
+	if quantity > data.resources.People : return FAILED
+	data.resources.People -= quantity
+	housing_updated.emit()
+
+func check_power() -> Error:
 	if data.resources.Power >= data.resources.Max_Power:
 		return FAILED
 	return OK
@@ -67,6 +83,11 @@ func consume_Power(quantity:int) -> Error:
 	data.resources.Power += 1
 	power_updated.emit()
 	return OK
+
+func buy_house():
+	data.resources.Houses += 1
+	data.resources.People += 4
+	housing_updated.emit()
 
 func buy_power_gen():
 	data.resources.Max_Power += 1
