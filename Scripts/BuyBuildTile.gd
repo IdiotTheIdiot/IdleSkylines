@@ -30,21 +30,27 @@ func calculate_building_cost(building_type : BuildingType, buildings_owned : int
 			
 			var pearl_farm_amount : int = buildings_owned
 			var cost_floor : int = pearl_farm_amount/20
-			Building_Cost = 4 * pow(1.08, (pearl_farm_amount * pow(2, cost_floor))) + pearl_farm_amount
+			if cost_floor <= 1:
+				cost_floor = 1
+			Building_Cost = 4 * pow(1.08, (pearl_farm_amount * (2 * cost_floor))) + pearl_farm_amount
 			
 			return Building_Cost
 		BuildingType.POWERGEN:
 			
 			var power_gen_amount : int = buildings_owned
 			var cost_floor : int = power_gen_amount/20
-			Building_Cost = 3 * pow(1.02, (power_gen_amount * pow(2, cost_floor))) + power_gen_amount
+			if cost_floor <= 1:
+				cost_floor = 1
+			Building_Cost = 3 * pow(1.02, (power_gen_amount * (2 * cost_floor))) + power_gen_amount
 			
 			return Building_Cost
 		BuildingType.HOUSING:
 			
 			var housing_amount : int = buildings_owned
 			var cost_floor :int = housing_amount/20
-			Building_Cost = 3 * pow(1.04, (housing_amount * pow(2, cost_floor))) + housing_amount
+			if cost_floor <= 1:
+				cost_floor = 1
+			Building_Cost = 3 * pow(1.04, (housing_amount * (2 * cost_floor))) + housing_amount
 			
 			return Building_Cost
 
