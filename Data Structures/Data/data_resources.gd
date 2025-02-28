@@ -15,3 +15,8 @@ extends Resource
 @export var Generators : int = 0
 @export var pearl_farms : int = 0
 @export var Houses : int = 0
+
+
+#quest flag checks
+
+@export var tutorial_done : bool = false
