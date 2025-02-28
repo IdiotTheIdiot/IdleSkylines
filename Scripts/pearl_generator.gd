@@ -34,7 +34,7 @@ func _progress_cycle() -> void:
 
 #generate resources and reset cycle progress
 func _generate() -> void:
-	_production = ((ResourcesManager.ref.get_pearl_farms() * 3) + 1) + (ResourcesManager.ref.get_unassigned_people())
+	_production = ((ResourcesManager.ref.get_pearl_farms() * 4) + 1) + (ResourcesManager.ref.get_unassigned_people())
 	_cycle_progression -= _cycle_duration
 	ResourcesManager.ref.create_pearls(_production)
 

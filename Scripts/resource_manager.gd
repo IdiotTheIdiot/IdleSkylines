@@ -40,7 +40,7 @@ func get_houses() -> int:
 	return data.resources.Houses
 	
 func get_unassigned_people():
-	return data.resources.Houses * 4 - get_pearl_farms()
+	return data.resources.Houses * 2 - get_pearl_farms()
 
 #creates Pearls
 func create_pearls(quantity:int) -> Error:
@@ -86,11 +86,11 @@ func consume_Power(quantity:int) -> Error:
 
 func buy_house():
 	data.resources.Houses += 1
-	data.resources.People += 4
+	data.resources.People += 2
 	housing_updated.emit()
 
 func buy_power_gen():
-	data.resources.Max_Power += 1
+	data.resources.Max_Power += 3
 	data.resources.Generators += 1
 	power_updated.emit()
 func buy_pearl_farm():
