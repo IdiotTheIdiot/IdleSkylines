@@ -16,12 +16,15 @@ func _ready():
 		BuildingType.PEARLFARM:
 			
 			get_node("BuyBuildTileCont/BuildingLabelCont/BuildingLabel").text = "Pearl Farms"
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms() + 1))
 		BuildingType.POWERGEN:
 			
 			get_node("BuyBuildTileCont/BuildingLabelCont/BuildingLabel").text = "Power Generator"
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.POWERGEN, ResourcesManager.ref.get_power_gens() + 1))
 		BuildingType.HOUSING:
 			
 			get_node("BuyBuildTileCont/BuildingLabelCont/BuildingLabel").text = "Housing"
+			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses() + 1))
 
 
 func calculate_building_cost(building_type : BuildingType, buildings_owned : int):
@@ -69,6 +72,10 @@ func _on_buy_cur_building_but_pressed():
 			
 			if error : return
 			
+			if ResourcesManager.ref.get_data("buy_button_pressed_pearlfarm")  == false:
+				ResourcesManager.ref.set_data("buy_button_pressed_pearlfarm", true)
+				ResourcesManager.ref.pearlfarm_purchased()
+			
 			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.PEARLFARM, ResourcesManager.ref.get_pearl_farms() + 1))
 			
 			ResourcesManager.ref.consume_children(1)
@@ -83,6 +90,12 @@ func _on_buy_cur_building_but_pressed():
 			
 			if error : return
 			
+			#tutorial setup
+			if ResourcesManager.ref.get_data("buy_button_pressed_powergen")  == false:
+				ResourcesManager.ref.set_data("buy_button_pressed_powergen", true)
+				ResourcesManager.ref.powergen_purchased()
+				
+			
 			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.POWERGEN, ResourcesManager.ref.get_power_gens() + 1))
 			
 			ResourcesManager.ref.buy_power_gen()
@@ -92,6 +105,12 @@ func _on_buy_cur_building_but_pressed():
 			var buildcost : int = calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses())
 			var error : Error = ResourcesManager.ref.consume_Pearls(buildcost)
 			if error : return
+			
+			if ResourcesManager.ref.get_data("buy_button_pressed_housing")  == false:
+				ResourcesManager.ref.set_data("buy_button_pressed_housing", true)
+				print(ResourcesManager.ref.get_data("buy_button_pressed_housing"))
+				ResourcesManager.ref.housing_purchased()
+			
 			get_node("BuyBuildTileCont/BuyCurBuildingButCont/BuyCurBuildingBut").text = str(calculate_building_cost(BuildingType.HOUSING, ResourcesManager.ref.get_houses() + 1))
 			ResourcesManager.ref.consume_Power(1)
 			ResourcesManager.ref.buy_house()

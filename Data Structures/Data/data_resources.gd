@@ -19,5 +19,7 @@ extends Resource
 #Quest Flags
 
 @export var tutorial_complete : bool = false
-@export var build_button_pressed : bool = false
-@export var buy_button_pressed : bool = false
+@export var build_button_pressed_powergen : bool = false
+@export var buy_button_pressed_powergen : bool = false
+@export var buy_button_pressed_housing : bool = false
+@export var buy_button_pressed_pearlfarm : bool = false

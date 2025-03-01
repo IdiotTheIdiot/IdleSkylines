@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6xbcwwfq6akg"]
+[gd_scene load_steps=18 format=3 uid="uid://6xbcwwfq6akg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_a7pg0"]
 [ext_resource type="Texture2D" uid="uid://dhmkyvsicu75s" path="res://Images/AdButton.PNG" id="1_xx6s1"]
@@ -8,9 +8,156 @@
 [ext_resource type="Theme" uid="uid://dod4khpgtu50m" path="res://Themes/BigButtonTheme.tres" id="2_ws0mi"]
 [ext_resource type="PackedScene" uid="uid://0n5njq3ts32o" path="res://Scenes/pearl_generator.tscn" id="3_xw5rk"]
 [ext_resource type="PackedScene" uid="uid://jd25j2y70xms" path="res://Scenes/BuyBuildingsMenu.tscn" id="8_j3dm6"]
+[ext_resource type="PackedScene" uid="uid://clrabnq440uda" path="res://Scenes/pop_up.tscn" id="8_lt4c8"]
+[ext_resource type="Texture2D" uid="uid://2ta5q2dfglnc" path="res://Images/—Pngtree—arrow shape red simple direction_8186748.png" id="9_32c26"]
 
 [sub_resource type="Theme" id="Theme_raoxt"]
 Label/font_sizes/font_size = 64
+
+[sub_resource type="Animation" id="Animation_y8fpn"]
+resource_name = "BuildMenuHighlightPowergen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RedArrow1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(531, 1641), Vector2(531, 1569), Vector2(531, 1641)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RedArrow1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RedArrow1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.57079]
+}
+
+[sub_resource type="Animation" id="Animation_hvmsi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RedArrow1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4d1cw"]
+resource_name = "DIPowerGenHighlight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RedArrow1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2005, 954)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RedArrow1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.57079]
+}
+
+[sub_resource type="Animation" id="Animation_at8oq"]
+resource_name = "DIPearlFarmHighlight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RedArrow1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1475, 941)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RedArrow1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.57079]
+}
+
+[sub_resource type="Animation" id="Animation_6fnf5"]
+resource_name = "DIHousingHighlight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RedArrow1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1784, 1746)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RedArrow1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxfye"]
+_data = {
+"BuildMenuHighlightPowergen": SubResource("Animation_y8fpn"),
+"DIHousingHighlight": SubResource("Animation_6fnf5"),
+"DIPearlFarmHighlight": SubResource("Animation_at8oq"),
+"DIPowerGenHighlight": SubResource("Animation_4d1cw"),
+"RESET": SubResource("Animation_hvmsi")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a7pg0")
@@ -23,13 +170,13 @@ script = ExtResource("1_a7pg0")
 
 [node name="PearlGenerator" parent="." instance=ExtResource("3_xw5rk")]
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="MenuButton" type="Button" parent="."]
 offset_left = 781.0
 offset_top = 124.0
 offset_right = 851.0
 offset_bottom = 155.0
 scale = Vector2(3.73883, 3.47116)
-text = "Settings
+text = "Menu
 "
 
 [node name="AdBreakButton" type="Button" parent="."]
@@ -151,23 +298,8 @@ layout_mode = 2
 theme = ExtResource("2_wivlq")
 text = "o"
 
-[node name="PopUp" type="ColorRect" parent="Camera2D"]
-offset_left = 110.0
-offset_top = 725.0
-offset_right = 307.0
-offset_bottom = 935.0
-scale = Vector2(4.27172, 3.09362)
-color = Color(0.054902, 0.054902, 0.054902, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/PopUp"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PopUpLabel" type="Label" parent="Camera2D/PopUp/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "This Is placeholder :)"
+[node name="PopUp" parent="Camera2D" instance=ExtResource("8_lt4c8")]
+z_index = 2
 
 [node name="Control" parent="." instance=ExtResource("8_j3dm6")]
 offset_left = 1199.0
@@ -175,7 +307,21 @@ offset_top = 86.0
 offset_right = 1199.0
 offset_bottom = 86.0
 
+[node name="RedArrow1" type="Sprite2D" parent="."]
+position = Vector2(1784, 1746)
+rotation = -3.14159
+scale = Vector2(0.214815, 0.214815)
+texture = ExtResource("9_32c26")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_lxfye")
+}
+autoplay = "BuildMenuHighlightPowergen"
+
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="MarginContainer/BuyBuildingsButton" to="." method="_on_buy_buildings_button_pressed"]
 [connection signal="pressed" from="PearlsButt" to="." method="_on_pearls_butt_pressed"]
 [connection signal="pressed" from="PowerButt" to="." method="_on_power_butt_pressed"]
