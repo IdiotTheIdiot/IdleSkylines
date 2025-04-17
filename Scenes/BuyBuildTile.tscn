@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwstyhl088an4"]
+[gd_scene load_steps=4 format=3 uid="uid://dwstyhl088an4"]
 
 [ext_resource type="Script" path="res://Scripts/BuyBuildTile.gd" id="1_ilibe"]
 [ext_resource type="Texture2D" uid="uid://bpw4jg1xytowo" path="res://Images/icon.svg" id="1_n84xg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87uoi"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
 
 [node name="BuyBuildTile" type="Control"]
 layout_mode = 3
@@ -25,23 +37,9 @@ offset_top = 23.0
 offset_right = 459.0
 offset_bottom = 510.0
 
-[node name="ColorRect" type="ColorRect" parent="BuyBuildTileCont"]
+[node name="ColorRect" type="Panel" parent="BuyBuildTileCont"]
 layout_mode = 2
-
-[node name="ColorRect2" type="ColorRect" parent="BuyBuildTileCont/ColorRect"]
-layout_mode = 2
-offset_left = 15.0
-offset_top = 20.0
-offset_right = 418.0
-offset_bottom = 467.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="BuyBuildTileCont/ColorRect/ColorRect2"]
-layout_mode = 2
-offset_left = 25.0
-offset_top = 26.0
-offset_right = 377.0
-offset_bottom = 415.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_87uoi")
 
 [node name="BuildingLabelCont" type="MarginContainer" parent="BuyBuildTileCont"]
 layout_mode = 2

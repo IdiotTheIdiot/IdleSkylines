@@ -42,4 +42,3 @@ func _generate() -> void:
 func _on_clock_ticked() -> void:
 	_progress_cycle()
 	
-
